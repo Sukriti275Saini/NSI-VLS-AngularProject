@@ -1,0 +1,22 @@
+.container-fluid{
+    background: url('../../../assets/images/videosback2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 491px;
+    padding: 50px 0;
+}
+.heading{
+    border-bottom: 2px solid black;
+}
+.details{
+    border-bottom: 2px solid black;
+    padding: 40px 0;
+    margin: 0 5px 20px 5px;
+}
+h2{
+    font-weight: 600;
+    font-size: 40px;
+    text-shadow: 1px 1px 2px rgb(155, 64, 64);
+}

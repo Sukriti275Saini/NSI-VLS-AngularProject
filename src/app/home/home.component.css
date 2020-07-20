@@ -1,0 +1,24 @@
+.container-fluid{
+    background: url('../../assets/images/homeback.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 491px;
+}
+.home-division{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 30px 15px;
+    background: #ffffffcc;
+    box-shadow: 1px 1px 4px black;
+}
+.btn-group{
+    margin-bottom: 20px;
+}
+.login-register{
+    background: rgb(190, 190, 190);
+}
+.login-register:active{
+    background: #128C7E;
+}

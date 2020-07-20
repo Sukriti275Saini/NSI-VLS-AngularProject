@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+            </div>
+            <div class="col-6 home-division">
+                <div class="row">
+                    <div class="col-12 btn-group">
+                        <button class="btn login-register btn-light" 
+                            (click)="loginform()" 
+                            [ngClass]="{'active': isActive}"
+                            [ngStyle]="isActive ? {'background-color': '#128C7E'} : {}"
+                            routerLinkActive="active"
+                            >Login</button>
+                        <button class="btn login-register btn-light"
+                            (click)="registerform()" 
+                            [ngClass]="{'active': !isActive}"
+                            [ngStyle]="!isActive ? {'background-color': '#128C7E'} : {}" 
+                            routerLinkActive="active"
+                            >Register</button>
+                    </div>
+
+                    <div class="col-12">
+                        <app-login *ngIf="showForm == true"></app-login>
+                        <app-register *ngIf="showForm == false"></app-register>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

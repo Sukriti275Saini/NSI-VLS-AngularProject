@@ -1,0 +1,142 @@
+<div class="col-12">
+    <form #form="ngForm" (ngSubmit)="OnRegister(form)">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4 align-self-center">
+                    <label>First Name</label>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" #firstName="ngModel" name="firstname" ngModel required>
+                    <span class="help-block" *ngIf="firstName.errors?.required && firstName.touched">
+                        *Username is required
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4 align-self-center">
+                    <label>Last Name</label>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" #lastName="ngModel" name="lastname" ngModel required>
+                    <span class="help-block" *ngIf="lastName.errors?.required && lastName.touched">
+                        *Username is required
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4 align-self-center">
+                    <label>Username</label>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" #userName="ngModel" name="username" ngModel required>
+                    <span class="help-block" *ngIf="userName.errors?.required && userName.touched">
+                        *Username is required
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4 align-self-center">
+                    <label>Date of Birth</label>
+                </div>
+                <div class="col-8">
+                    <input type="date" class="form-control" #dateOfBirth="ngModel" name="dob" ngModel required>
+                    <span class="help-block" *ngIf="dateOfBirth.errors?.required && dateOfBirth.touched">
+                        *Date of Birth is required
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4 align-self-center">
+                    <label>E-mail</label>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" #Email="ngModel" name="email" email ngModel required>
+                    <span class="help-block" *ngIf="Email.errors?.required && Email.touched">
+                        *Email id is required
+                    </span>
+                    <span class="help-block" *ngIf="Email.errors?.email">
+                        *Enter valid email
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div ngModelGroup="passwordGroup" #passwordGroup="ngModelGroup"
+            [class.has-error]="cpwd.touched && !cpwd.valid && !cpwd.errors?.required">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4 align-self-center">
+                        <label class="label">New Password</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="password" class="form-control" ngModel name="newpassword" #newpwd="ngModel" required
+                            minlength="6" (input)="cpwd.control.updateValueAndValidity()">
+                        <span class="help-block" *ngIf="newpwd.errors?.required && newpwd.touched">
+                            *Password is required
+                        </span>
+                        <span class="help-block" *ngIf="newpwd.errors?.minlength">
+                            *Password must be at least 6 characters
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4 align-self-center">
+                        <label class="label">Re-enter Password</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="password" class="form-control" ngModel name="cpassword" #cpwd="ngModel"
+                            appconfirmequalvalidator="newpassword" required>
+                        <span class="help-block" *ngIf="cpwd.errors?.required && cpwd.touched">
+                            *Password is required
+                        </span>
+                        <span class="help-block" *ngIf="cpwd.touched && cpwd.errors?.notEqual && !cpwd.errors?.required">
+                            *Password and ConfirmPassword does not match
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4 align-self-center">
+                    <label>Phone Number</label>
+                </div>
+                <div class="col-8">
+                    <input type="number" class="form-control" #phoneNo="ngModel" name="phoneno" ngModel required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4 align-self-center">
+                    <label>Address</label>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" #Address="ngModel" name="address" ngModel required>
+                    <span class="help-block" *ngIf="Address.errors?.required && Address.touched">
+                        *Username is required
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <button class="btn btn-lr">Register</button>
+            </div>
+        </div>
+    </form>
+</div>

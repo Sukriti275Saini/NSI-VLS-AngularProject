@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="container">
+        <!-- <app-full-loader *ngIf="isLoading"></app-full-loader> -->
+        <div class="row">
+            <div class="col-3" *ngFor="let video of videos">
+                <div class="card">
+                    <div class="video-main" 
+                    (click)=seeDetails(video.videoId)>
+                        <div class="card-body">
+                            <img src="{{video.videoImage}}" alt="">
+                        </div>
+                        <div class="card-header">
+                            <h4>{{ video.videoName }}</h4>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <a><i class="fas fa-thumbs-up"></i><span><badge>0</badge></span></a>
+                            </div>
+                            <div class="col-6 text-center">
+                                <a><i class="fas fa-thumbs-down"></i><span><badge>0</badge></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

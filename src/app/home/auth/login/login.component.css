@@ -1,0 +1,7 @@
+.btn-lr{
+    background: #128C7E;
+}
+.btn-lr:hover{
+    background: #128c49;
+    color: white;
+}
