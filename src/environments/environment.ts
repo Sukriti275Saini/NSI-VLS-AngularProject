@@ -8,8 +8,11 @@ export const environment = {
   register: 'api/auth',
   login: 'api/auth/authenticate',
   dashboard: 'api/auth/GetUser',
+  userRecord: 'api/records/UserRecord',
   videosList: 'api/videos',
-  videoDetails: 'api/videos/VideoDetails'
+  videoDetails: 'api/videos/VideoDetails',
+  newRecord: 'api/records',
+  deleteRecord: 'api/records/deleteRec/'
 };
 
 /*

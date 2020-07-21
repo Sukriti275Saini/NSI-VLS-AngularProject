@@ -2,28 +2,28 @@
     <div class="container">
         <div class="row">
             <div class="heading col-12">
-                <h2>Details of Video : {{ video.videoName }}</h2>
+                <h2>Details of Video : {{ video?.videoName }}</h2>
             </div>
 
             <div class="details row">
                 <div class="col-2"><h5>Release Year :</h5></div>
-                <div class="col-10"><h5>{{ video.yearOfRelease }}</h5></div>
+                <div class="col-10"><h5>{{ video?.yearOfRelease }}</h5></div>
 
                 <div class="col-2"><h5>Languages :</h5></div>
-                <div class="col-10"><h5>{{ video.language }}</h5></div>
+                <div class="col-10"><h5>{{ video?.language }}</h5></div>
 
                 <div class="col-2"><h5>Director :</h5></div>
-                <div class="col-10"><h5>{{ video.director }}</h5></div>
+                <div class="col-10"><h5>{{ video?.director }}</h5></div>
 
                 <div class="col-2"><h5>Actors :</h5></div>
-                <div class="col-10"><h5>{{ video.actors }}</h5></div>
+                <div class="col-10"><h5>{{ video?.actors }}</h5></div>
 
                 <div class="col-2"><h5>Description :</h5></div>
-                <div class="col-10"><h5>{{ video.description }}</h5></div>
+                <div class="col-10"><h5>{{ video?.description }}</h5></div>
             </div>
             
             <div class="col-12">
-                <button class="btn btn-success">Lease Video</button>
+                <button class="btn btn-success" (click)="addRecord()">Lease Video</button>
             </div>
         </div>
     </div>

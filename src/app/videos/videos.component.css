@@ -10,6 +10,7 @@
 .card{
     background: #ffffffd0;
     box-shadow: 1px 1px 4px #C13952;
+    margin-bottom: 30px;
 }
 .video-main:hover{
     cursor: pointer;

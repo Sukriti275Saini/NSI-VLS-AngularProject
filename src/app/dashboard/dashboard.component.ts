@@ -9,7 +9,9 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
+  userName: string;
   user: any;
+  records: any[] = [];
 
   constructor(private userService: UserService,
               private router: Router,
@@ -18,11 +20,14 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: Params) => {
-        this.user = params['username'];
+        this.userName = params['username'];
       }
     );
 
-    this.getUser(this.user);
+    localStorage.setItem('userName', this.userName);
+
+    this.getUser(this.userName);
+    this.getRecord(this.userName);
   }
 
   getUser(userName: any){
@@ -36,6 +41,41 @@ export class DashboardComponent implements OnInit {
       }
     );
   }
+
+
+  getRecord(userName: any){
+    this.userService.getUserRecord(userName).subscribe(
+      (data) => {
+        this.records = data;
+        console.log(data);
+      },
+      (error)=> {
+        console.log(error);
+      }
+    );
+  }
+
+
+  delRecord(recordId){
+    this.userService.deleteRecord(recordId).subscribe(
+      (ok) => {
+        console.log(ok);
+      },
+      (error)=> {
+        console.log(error);
+      }
+    );
+  }
+
+  
+  onReturnVideo(recordId){
+    //console.log(recordId);
+    if(confirm("Are you sure to return this video" + recordId?.video?.videoName)) {
+      this.delRecord(recordId);
+    }
+
+  }
+
 
   onLogout(){
     this.router.navigate(['/']);

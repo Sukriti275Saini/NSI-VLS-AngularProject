@@ -3,8 +3,10 @@ export const environment = {
   base_url: 'http://localhost:6500/',
   register: 'api/auth',
   login: 'api/auth/authenticate',
-  dashboard: 'api/auth/:UserName',
+  dashboard: 'api/auth/GetUser',
+  userRecord: 'api/records/UserRecord',
   videosList: 'api/videos',
-  //videoDetailsById: 'api/videos/3',
-  videoDetailsById: 'api/videos/:videoId'
+  videoDetails: 'api/videos/VideoDetails',
+  newRecord: 'api/records',
+  deleteRecord: 'api/records/'
 };

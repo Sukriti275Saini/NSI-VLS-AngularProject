@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VideosService } from '../videos.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { getLocaleDateFormat } from '@angular/common';
 
 @Component({
   selector: 'app-video-details',
@@ -9,20 +10,26 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class VideoDetailsComponent implements OnInit {
 
+  existingUsername: string;
+  videoId: any;
   video: any;
+  singleRecord: any;
+  record: any = {};
+  myDate = new Date();
 
   constructor(private videoService: VideosService,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.existingUsername = localStorage.getItem('userName');
     this.route.params.subscribe(
       (params: Params) => {
-        this.video = +params['videoId'];
+        this.videoId = +params['videoId'];
       }
     );
 
-    this.getDetails(this.video);
+    this.getDetails(this.videoId);
   }
 
 
@@ -37,5 +44,32 @@ export class VideoDetailsComponent implements OnInit {
       }
     );
   }
+
+
+  addRecord(){
+    //this.existingUsername = "Saini275";
+    this.record.video = {};
+    this.record.user = {};
+    this.record.video.videoId = this.videoId;
+    this.record.video.yearOfRelease = this.video.yearOfRelease;
+    this.record.user.userName = this.existingUsername;
+    this.record.issueDate;
+    this.record.returnDate;
+
+
+    this.videoService.postRecord(this.record).subscribe(
+      response => {
+        this.singleRecord = response;
+        console.log(response);
+      },
+      (error)=> {
+        console.log(error);
+      }
+    );
+
+    this.router.navigate(['dashboard', this.existingUsername]);
+  }
+
+  
 
 }

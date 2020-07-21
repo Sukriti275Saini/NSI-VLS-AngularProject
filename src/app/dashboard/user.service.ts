@@ -20,6 +20,23 @@ export class UserService {
         .pipe(map(response => response));
     }
 
+    getUserRecord(UserName: string): Observable<any> {
+      const requestOptions = {
+        params: new HttpParams().set('UserName', UserName)
+      };
+        return this.http.get(`${environment.base_url + environment.userRecord}`, requestOptions)
+        .pipe(map(response => response));
+    }
+
+    deleteRecord(recordId: number): Observable<any> {debugger
+      const requestOptions = {
+        params: new HttpParams().set('RecordId', recordId.toString())
+      };
+      //var testurl = `${environment.base_url + environment.deleteRecord}`;
+        return this.http.delete(`${environment.base_url + environment.deleteRecord}`, requestOptions)
+        .pipe(map(response => response));
+    }
+
     // GetAgreement(applicationRequestID: number): Observable<any> {
     //   const requestOptions = {
     //     params: new HttpParams().set('applicationRequestID', applicationRequestID.toString()).append('password', Password)
