@@ -10,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 
 export class HomeService {
 
-    isLoading = false;
+    // isLoading = false;
     isLoggedIn;
 
     constructor(private http: HttpClient,
@@ -18,8 +18,8 @@ export class HomeService {
 
 
     getAuthStatus() {
-        this.isLoading = true;
-        console.log("getauthstatus", this.isLoading);
+        // this.isLoading = true;
+        //console.log("getauthstatus", this.isLoading);
         //this.isLoggedIn = localStorage.getItem('Email') ? true : false;
          this.isLoggedIn = this.cookie.get('userName') ? true : false;
         return this.isLoggedIn;

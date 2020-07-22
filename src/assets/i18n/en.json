@@ -51,7 +51,10 @@
     "VideoName": "VideoName :",
     "IssueDate": "IssueDate :",
     "ReturnDate": "ReturnDate :",
-    "Return Video": "Return Video"
+    "Return Video": "Return Video",
+
+    "Application Name": "Video Lease Management System",
+    "Home Text": "Login or Register & get your video"
 
 
 }

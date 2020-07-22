@@ -79,7 +79,7 @@ export class DashboardComponent implements OnInit {
   
   onReturnVideo(rec){
     //console.log(recordId);
-    if(confirm("Are you sure to return this video" + rec?.video?.videoName)) {
+    if(confirm("Are you sure to return this video " + rec?.video?.videoName)) {
       this.delRecord(rec.recordId);
     }
 
@@ -87,7 +87,7 @@ export class DashboardComponent implements OnInit {
 
 
   onLogout(){
-    //console.log('submit');
+    console.log('submit');
     this.cookie.deleteAll();
     this.router.navigate(['/']);
     }

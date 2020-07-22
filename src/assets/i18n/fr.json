@@ -51,5 +51,8 @@
     "VideoName": "VideoName :",
     "IssueDate": "Date d'émission :",
     "ReturnDate": "Date de retour :",
-    "Return Video": "Retour vidéo"
+    "Return Video": "Retour vidéo",
+    
+    "Application Name": "Système de gestion de location vidéo",
+    "Home Text": "Connectez-vous ou inscrivez-vous et obtenez votre vidéo"
 }
