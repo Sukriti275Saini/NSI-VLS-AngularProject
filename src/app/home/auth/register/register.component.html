@@ -3,12 +3,12 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-4 align-self-center">
-                    <label>First Name</label>
+                    <label translate>First Name</label>
                 </div>
                 <div class="col-8">
                     <input type="text" class="form-control" #firstName="ngModel" name="firstname" ngModel required>
-                    <span class="help-block" *ngIf="firstName.errors?.required && firstName.touched">
-                        *Username is required
+                    <span class="help-block text-danger" *ngIf="firstName.errors?.required && firstName.touched" translate>
+                        ErrorFirstname
                     </span>
                 </div>
             </div>
@@ -16,12 +16,12 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-4 align-self-center">
-                    <label>Last Name</label>
+                    <label translate>Last Name</label>
                 </div>
                 <div class="col-8">
                     <input type="text" class="form-control" #lastName="ngModel" name="lastname" ngModel required>
-                    <span class="help-block" *ngIf="lastName.errors?.required && lastName.touched">
-                        *Username is required
+                    <span class="help-block text-danger" *ngIf="lastName.errors?.required && lastName.touched" translate>
+                        ErrorLastname
                     </span>
                 </div>
             </div>
@@ -30,12 +30,12 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-4 align-self-center">
-                    <label>Username</label>
+                    <label translate>Username</label>
                 </div>
                 <div class="col-8">
                     <input type="text" class="form-control" #userName="ngModel" name="username" ngModel required>
-                    <span class="help-block" *ngIf="userName.errors?.required && userName.touched">
-                        *Username is required
+                    <span class="help-block text-danger" *ngIf="userName.errors?.required && userName.touched" translate>
+                        ErrorUsername
                     </span>
                 </div>
             </div>
@@ -44,12 +44,12 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-4 align-self-center">
-                    <label>Date of Birth</label>
+                    <label translate>Date of Birth</label>
                 </div>
                 <div class="col-8">
                     <input type="date" class="form-control" #dateOfBirth="ngModel" name="dob" ngModel required>
-                    <span class="help-block" *ngIf="dateOfBirth.errors?.required && dateOfBirth.touched">
-                        *Date of Birth is required
+                    <span class="help-block text-danger" *ngIf="dateOfBirth.errors?.required && dateOfBirth.touched" translate>
+                        ErrorDoB
                     </span>
                 </div>
             </div>
@@ -58,15 +58,15 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-4 align-self-center">
-                    <label>E-mail</label>
+                    <label translate>E-mail</label>
                 </div>
                 <div class="col-8">
                     <input type="text" class="form-control" #Email="ngModel" name="email" email ngModel required>
-                    <span class="help-block" *ngIf="Email.errors?.required && Email.touched">
-                        *Email id is required
+                    <span class="help-block text-danger" *ngIf="Email.errors?.required && Email.touched" translate>
+                        ErrorEmail
                     </span>
-                    <span class="help-block" *ngIf="Email.errors?.email">
-                        *Enter valid email
+                    <span class="help-block text-danger" *ngIf="Email.errors?.email" translate>
+                        ErrorEmail2
                     </span>
                 </div>
             </div>
@@ -77,16 +77,16 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-4 align-self-center">
-                        <label class="label">New Password</label>
+                        <label class="label" translate>Password</label>
                     </div>
                     <div class="col-8">
                         <input type="password" class="form-control" ngModel name="newpassword" #newpwd="ngModel" required
                             minlength="6" (input)="cpwd.control.updateValueAndValidity()">
-                        <span class="help-block" *ngIf="newpwd.errors?.required && newpwd.touched">
-                            *Password is required
+                        <span class="help-block text-danger" *ngIf="newpwd.errors?.required && newpwd.touched" translate>
+                            ErrorPass
                         </span>
-                        <span class="help-block" *ngIf="newpwd.errors?.minlength">
-                            *Password must be at least 6 characters
+                        <span class="help-block text-danger" *ngIf="newpwd.errors?.minlength" translate>
+                            ErrorPass2
                         </span>
                     </div>
                 </div>
@@ -94,16 +94,16 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-4 align-self-center">
-                        <label class="label">Re-enter Password</label>
+                        <label class="label" translate>Confirm Password</label>
                     </div>
                     <div class="col-8">
                         <input type="password" class="form-control" ngModel name="cpassword" #cpwd="ngModel"
                             appconfirmequalvalidator="newpassword" required>
-                        <span class="help-block" *ngIf="cpwd.errors?.required && cpwd.touched">
-                            *Password is required
+                        <span class="help-block text-danger" *ngIf="cpwd.errors?.required && cpwd.touched" translate>
+                            ErrorCPass
                         </span>
-                        <span class="help-block" *ngIf="cpwd.touched && cpwd.errors?.notEqual && !cpwd.errors?.required">
-                            *Password and ConfirmPassword does not match
+                        <span class="help-block text-danger" *ngIf="cpwd.touched && cpwd.errors?.notEqual && !cpwd.errors?.required" translate>
+                            ErrorCPass2
                         </span>
                     </div>
                 </div>
@@ -113,29 +113,33 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-4 align-self-center">
-                    <label>Phone Number</label>
+                    <label translate>Phone Number</label>
                 </div>
                 <div class="col-8">
                     <input type="number" class="form-control" #phoneNo="ngModel" name="phoneno" ngModel required>
+                    <span class="help-block text-danger" *ngIf="phoneNo.errors?.required && phoneNo.touched" translate>
+                        ErrorPhone
+                    </span>
                 </div>
             </div>
         </div>
+
         <div class="form-group">
             <div class="row">
                 <div class="col-4 align-self-center">
-                    <label>Address</label>
+                    <label translate>Address</label>
                 </div>
                 <div class="col-8">
                     <input type="text" class="form-control" #Address="ngModel" name="address" ngModel required>
-                    <span class="help-block" *ngIf="Address.errors?.required && Address.touched">
-                        *Username is required
+                    <span class="help-block text-danger" *ngIf="Address.errors?.required && Address.touched" translate>
+                        ErrorAddress
                     </span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <button class="btn btn-lr">Register</button>
+                <button class="btn btn-lr" translate>Register</button>
             </div>
         </div>
     </form>

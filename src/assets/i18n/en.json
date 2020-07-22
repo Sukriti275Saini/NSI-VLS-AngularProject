@@ -1,0 +1,57 @@
+{
+    "Home": "Home",
+    "Dashboard": "Dashboard",
+    "Videos": "Videos",
+    "Choose Language": "Choose Language",
+    "English": "English",
+    "French": "French",
+
+    "Application": "Video Lease Management System",
+    "Creation": "Application created by {{ name }}",
+    "Designation": "Designation: Trainee-Developer(.NET)",
+    "Email": "Email: sukriti.saini@netsolutions.com",
+    "Contact": "Contact: 8872283355",
+
+    "Login": "Login",
+    "Register": "Register",
+
+    "Username": "Username",
+    "ErrorUsername": "*Username is required",
+    "Password": "Password",
+    "ErrorPassword": "*Password is required",
+
+    "First Name": "First Name",
+    "ErrorFirstname": "*Firstname is required",
+    "Last Name": "Last Name",
+    "ErrorLastname": "*Lastname is required",
+    "Date of Birth": "Date of Birth",
+    "ErrorDoB": "*Date of Birth is required",
+    "E-mail": "Email",
+    "ErrorEmail": "*Email id is required",
+    "ErrorEmail2": "*Enter valid email",
+    "ErrorPass": "*Password is required",
+    "ErrorPass2": "*Password must be at least 6 characters",
+    "Confirm Password": "Confirm Password",
+    "ErrorCPass": "*Confirm-Password is required",
+    "ErrorCPass2": "*Password and ConfirmPassword does not match",
+    "Phone Number": "Phone Number",
+    "ErrorPhone": "*Phone No is required",
+    "Address": "Address",
+    "ErrorAddress": "*Address is required",
+
+    "Release Year": "Release Year :",
+    "Languages": "Languages :",
+    "Director": "Director :",
+    "Actors": "Actors :",
+    "Description": "Description :",
+    "Lease Video": "Lease Video",
+
+    "Logout": "Logout",
+    "Leased Videos": "Leased Videos :",
+    "VideoName": "VideoName :",
+    "IssueDate": "IssueDate :",
+    "ReturnDate": "ReturnDate :",
+    "Return Video": "Return Video"
+
+
+}

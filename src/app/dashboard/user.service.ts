@@ -28,7 +28,7 @@ export class UserService {
         .pipe(map(response => response));
     }
 
-    deleteRecord(recordId: number): Observable<any> {debugger
+    deleteRecord(recordId: number): Observable<any> {
       const requestOptions = {
         params: new HttpParams().set('RecordId', recordId.toString())
       };

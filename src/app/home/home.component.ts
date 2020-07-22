@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,11 @@ export class HomeComponent implements OnInit {
   isActive = true;
   showForm = true;
 
-  constructor() { }
+  constructor(private translateService: TranslateService) {
+
+    translateService.setDefaultLang('en');
+
+   }
 
   ngOnInit(): void {
   }

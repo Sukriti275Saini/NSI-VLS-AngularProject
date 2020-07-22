@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  userName;
+  // loggedIn = false;
+
+  constructor(private cookie: CookieService,
+              private translateService: TranslateService) {
+                
+                translateService.setDefaultLang('en');
+              
+              }
 
   ngOnInit(): void {
+    this.userName = this.cookie.get('userName');
+    // if(this.userName){
+    //   this.loggedIn = true;
+    // }
   }
+
+  switchLanguage(language: string){
+    this.translateService.use(language);
+  }
+
 
 }

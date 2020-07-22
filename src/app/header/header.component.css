@@ -15,3 +15,7 @@ nav{
     background: #128C7E;
     box-shadow: 0px 2px 4px black;
 }
+.dropdown-menu{
+    left: auto;
+    right: 10px;
+}

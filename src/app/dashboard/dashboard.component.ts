@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './user.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +17,13 @@ export class DashboardComponent implements OnInit {
 
   constructor(private userService: UserService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private cookie: CookieService,
+              private translateService: TranslateService) {
+
+                translateService.setDefaultLang('en');
+                
+               }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -24,7 +32,7 @@ export class DashboardComponent implements OnInit {
       }
     );
 
-    localStorage.setItem('userName', this.userName);
+     //localStorage.setItem('userName', this.userName);
 
     this.getUser(this.userName);
     this.getRecord(this.userName);
@@ -60,6 +68,7 @@ export class DashboardComponent implements OnInit {
     this.userService.deleteRecord(recordId).subscribe(
       (ok) => {
         console.log(ok);
+        this.records = this.records.filter((record) => record.recordId != recordId);
       },
       (error)=> {
         console.log(error);
@@ -68,16 +77,18 @@ export class DashboardComponent implements OnInit {
   }
 
   
-  onReturnVideo(recordId){
+  onReturnVideo(rec){
     //console.log(recordId);
-    if(confirm("Are you sure to return this video" + recordId?.video?.videoName)) {
-      this.delRecord(recordId);
+    if(confirm("Are you sure to return this video" + rec?.video?.videoName)) {
+      this.delRecord(rec.recordId);
     }
 
   }
 
 
   onLogout(){
+    //console.log('submit');
+    this.cookie.deleteAll();
     this.router.navigate(['/']);
     }
 

@@ -6,12 +6,34 @@
     background-attachment: fixed;
     min-height: 491px;
 }
+.home-text{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.home-text h1{
+    padding: 30px;
+    font-size: 60px;
+    letter-spacing: 2.5px;
+    font-weight: 700;
+    /* color: white; */
+    text-align: center;
+    /* text-shadow: 2px 2px 4px white;  */
+    background: linear-gradient(rgb(255, 0, 0, 100%), rgb(255, 255, 255, 100%), rgb(255, 0, 0));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.home-text h2{
+    padding: 30px;
+    color: white;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px black;
+}
 .home-division{
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 30px 15px;
     background: #ffffffcc;
-    box-shadow: 1px 1px 4px black;
+    box-shadow: 2px 2px 4px black;
 }
 .btn-group{
     margin-bottom: 20px;
