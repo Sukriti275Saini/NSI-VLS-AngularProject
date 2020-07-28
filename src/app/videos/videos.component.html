@@ -1,6 +1,18 @@
 <div class="container-fluid">
     <div class="container">
         <!-- <app-full-loader *ngIf="isLoading"></app-full-loader> -->
+        
+        <!-- search field -->
+        <!-- <form>
+            <div class="form-group search-part">
+              <input type="text" class="form-control" placeholder="Search for people and team" ngModel name="searchText"
+                #myInput [(ngModel)]="searchText">
+              <button type="button" (click)="setFocus()" class="btn btn-default userIcon"><i class="fas fa-search"></i></button>
+            </div>
+        </form> -->
+
+        <!-- <div class="col-3" *ngFor="let video of videos | filter:searchText"> -->
+
         <div class="row">
             <div class="col-3" *ngFor="let video of videos">
                 <div class="card">

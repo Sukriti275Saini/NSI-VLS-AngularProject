@@ -1,13 +1,50 @@
 <div class="container-fluid">
     <div class="container">
-        <div class="col-12" style="text-align: end;">
-            <div class="btn btn-danger" (click)="onLogout()" translate>Logout</div>
-        </div>
+        
         <div class="row hello">
             <div class="col-9 text-center">
                 <h2>Hello {{ user?.firstName }} {{ user?.lastName }}</h2>
+                <!-- <h5>Contact No. : {{ user?.mobile | contactPipe }}</h5> -->
             </div>
+            <div class="col-3 user-options">
+                <div class="row options">
+
+                    <img type="button" class="img-thumbnail" data-toggle="modal" data-target="#exampleModal" src="{{ user?.profilePicture }}" onerror="this.onerror=null; this.src='../../assets/images/testimony.png'" alt="">
+
+                    <div class="modal fade" id="exampleModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="exampleModalLabel"><b>My Profile</b></h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body" *ngIf="user!=null">
+                              <app-view-user [userDetail]="user"></app-view-user>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+
+                    <div class="dropdown align-self-center">
+                        <button class="btn" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Options <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <a class="dropdown-item text-danger" (click)="onLogout()" translate>Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
         </div>
+
+
+
         <div class="allrecords">
             <h2 translate>Leased Videos</h2>
             <div class="row one-record" *ngFor="let rec of records">

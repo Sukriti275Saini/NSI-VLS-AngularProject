@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { VideosService } from './videos.service';
 import { Router } from '@angular/router';
 
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class VideosComponent implements OnInit {
 
   videos: [];
+  // searchText;
+  // @ViewChild("myInput", { static: false }) search: ElementRef;
 
   constructor(private videoService: VideosService,
               private route: Router) { }
@@ -21,7 +23,7 @@ export class VideosComponent implements OnInit {
   getVideos(){
     this.videoService.getVideos().subscribe(response=>{
       this.videos = response;
-      console.log(response);
+      //console.log(response);
     },
     (error)=>{
       console.log(error);
@@ -32,6 +34,11 @@ export class VideosComponent implements OnInit {
 
   seeDetails(videoId){
     this.route.navigate(['video', videoId]);
+    //console.log(videoId);
   }
+
+  // setFocus() {
+  //   this.search.nativeElement.focus();
+  // }
 
 }

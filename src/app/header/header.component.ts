@@ -12,15 +12,14 @@ export class HeaderComponent implements OnInit {
   userName;
   // loggedIn = false;
 
-  constructor(private cookie: CookieService,
-              private translateService: TranslateService) {
+  constructor(private translateService: TranslateService) {
                 
                 translateService.setDefaultLang('en');
               
               }
 
   ngOnInit(): void {
-    this.userName = this.cookie.get('userName');
+    this.userName = localStorage.getItem('user');
     // if(this.userName){
     //   this.loggedIn = true;
     // }

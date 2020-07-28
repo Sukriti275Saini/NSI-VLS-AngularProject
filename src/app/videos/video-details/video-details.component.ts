@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VideosService } from '../videos.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { getLocaleDateFormat } from '@angular/common';
-import { CookieService } from 'ngx-cookie-service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -17,12 +15,10 @@ export class VideoDetailsComponent implements OnInit {
   video: any;
   singleRecord: any;
   record: any = {};
-  myDate = new Date();
 
   constructor(private videoService: VideosService,
               private router: Router,
               private route: ActivatedRoute,
-              private cookie: CookieService,
               private translateService: TranslateService) {
 
                 translateService.setDefaultLang('en');
@@ -30,7 +26,7 @@ export class VideoDetailsComponent implements OnInit {
                }
 
   ngOnInit(): void {
-    this.existingUsername = this.cookie.get('userName');
+    this.existingUsername = localStorage.getItem('user');
     this.route.params.subscribe(
       (params: Params) => {
         this.videoId = +params['videoId'];

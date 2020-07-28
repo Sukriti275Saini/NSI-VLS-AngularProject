@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-3">Full Name: </div>
+    <div class="col-9">{{ userDetail?.firstName }}{{ userDetail?.lastName }}</div>
+
+    <div class="col-3">Username: </div>
+    <div class="col-9">{{ userDetail?.userName }}</div>
+
+    <div class="col-3">Email: </div>
+    <div class="col-9">{{ userDetail?.email }}</div>
+
+    <div class="col-3">Birth Date: </div>
+    <div class="col-9">{{ userDetail?.dateOfBirth | date }}</div>
+
+    <div class="col-3">Contact No.: </div>
+    <div class="col-9">{{ userDetail?.mobile | contactPipe }}</div>
+    
+    <div class="col-3">Address: </div>
+    <div class="col-9">{{ userDetail?.address }}</div>
+</div>

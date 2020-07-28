@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './user.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -14,11 +13,12 @@ export class DashboardComponent implements OnInit {
   userName: string;
   user: any;
   records: any[] = [];
+  // data: any = [];
+  contactPipe;
 
   constructor(private userService: UserService,
               private router: Router,
               private route: ActivatedRoute,
-              private cookie: CookieService,
               private translateService: TranslateService) {
 
                 translateService.setDefaultLang('en');
@@ -34,15 +34,17 @@ export class DashboardComponent implements OnInit {
 
      //localStorage.setItem('userName', this.userName);
 
-    this.getUser(this.userName);
+   this.getUser(this.userName);
     this.getRecord(this.userName);
+
   }
 
   getUser(userName: any){
-    this.userService.getDashboardUser(userName).subscribe(
+     this.userService.getDashboardUser(userName).subscribe(
       response => {
-        this.user = response;
         console.log(response);
+         this.user = response;
+         console.log(this.user);
       },
       (error)=> {
         console.log(error);
@@ -50,12 +52,11 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-
   getRecord(userName: any){
     this.userService.getUserRecord(userName).subscribe(
       (data) => {
         this.records = data;
-        console.log(data);
+        //console.log(data);
       },
       (error)=> {
         console.log(error);
@@ -85,10 +86,10 @@ export class DashboardComponent implements OnInit {
 
   }
 
-
   onLogout(){
-    console.log('submit');
-    this.cookie.deleteAll();
+    //console.log('submit');
+    //this.cookie.deleteAll();
+    localStorage.clear();
     this.router.navigate(['/']);
     }
 

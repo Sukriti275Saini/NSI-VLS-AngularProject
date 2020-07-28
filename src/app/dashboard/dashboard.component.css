@@ -36,3 +36,44 @@
     background: rgba(187, 0, 0, 0.80);
     color: white;
 }
+.user-options img{
+    background-image: url(../../assets/images/testimony.png);
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    border: 1px solid white;
+    padding: 0;
+    box-shadow: 2px 2px 4px black;
+    margin-right: 10px;
+}
+.options{
+    margin: 0 15px;
+    justify-content: flex-end;
+}
+.options .dropdown{
+    outline: none;
+}
+.options .dropdown-menu.show{
+    padding: 0;
+}
+.options .dropdown .dropdown-menu a:hover{
+    background: #128C7E;
+    color: white;
+    box-shadow: 0 0 4px black;
+}
+
+.modal-header{
+    background: #128c7e;
+    color: white;
+}
+.modal-header button{
+    color: rgb(190, 0, 0);
+}
+.modal-footer{
+    background: #128c7e;
+}
+.modal-footer button{
+    background: white;
+    color: black;
+    font-weight: 600;
+}

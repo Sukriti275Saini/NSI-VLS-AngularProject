@@ -1,29 +1,31 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { HomeService } from '../../home/home.service';
 import { CookieService } from 'ngx-cookie-service';
+import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginGuard implements CanActivate  {
   constructor(
-    private homeService: HomeService,
+    private authService: AuthService,
     private router: Router,
     private cookie: CookieService) {
   }
-    euserName;
+    user;
   //existingUsername = localStorage.getItem('userName');
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot) {
-    if (!this.homeService.getAuthStatus()) {
-      return true;
-    }
+  canActivate(next: ActivatedRouteSnapshot,
+              state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     
-    this.euserName = this.cookie.get('userName');
-    this.router.navigate(['/dashboard', this.euserName]);
-    return false;
+                if (!this.authService.getAuthStatus()) {
+                  return true;
+                }
+                this.user = localStorage.getItem('user');
+                //this.euserName = this.cookie.get('userName');
+                this.router.navigate(['/dashboard', this.user]);
+                return false;
   }
+  
 }

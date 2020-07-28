@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
-import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
     providedIn: 'root'
@@ -10,20 +9,17 @@ import { CookieService } from 'ngx-cookie-service';
 
 export class HomeService {
 
-    // isLoading = false;
-    isLoggedIn;
+    //isLoggedIn = false;
 
-    constructor(private http: HttpClient,
-                private cookie: CookieService) { }
+    constructor(private http: HttpClient) { }
 
 
-    getAuthStatus() {
-        // this.isLoading = true;
-        //console.log("getauthstatus", this.isLoading);
-        //this.isLoggedIn = localStorage.getItem('Email') ? true : false;
-         this.isLoggedIn = this.cookie.get('userName') ? true : false;
-        return this.isLoggedIn;
-    }
+    // getAuthStatus() {
+    //     this.isLoggedIn = localStorage.getItem('token') && localStorage.getItem('user') ? true : false;
+    //     console.log(this.isLoggedIn, "AuthStatus");
+    //     // this.isLoggedIn = this.cookie.get('userName') ? true : false;
+    //     return this.isLoggedIn;
+    // }
 
 
     register(body): Observable<any> {
