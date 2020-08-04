@@ -16,6 +16,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 export function translateHttpLoaderFactory(http: HttpClient){
@@ -41,7 +43,8 @@ export function translateHttpLoaderFactory(http: HttpClient){
         useFactory: translateHttpLoaderFactory,
         deps:[HttpClient]
       }
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
 
   providers: [AuthGuard, 
